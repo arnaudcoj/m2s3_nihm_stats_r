@@ -23,8 +23,15 @@ ci = function(vector) {
     return(1.96 * sd(vector) / sqrt(length(vector)))
 }
 
-temps_moyens_low = temps_moyens
-temps_moyens_upp = temps_moyens
+calcul_intervalle_confiance = function(dataframe, technique) {
+  participants=subset(dataframe,Err==0 & Technique==technique)
+  return(ci(participants[,"Time"]))
+}
+
+intervalles_confiance = sapply(techniques, calcul_intervalle_confiance, dataframe=data)
+
+temps_moyens_low = temps_moyens - intervalles_confiance
+temps_moyens_upp = temps_moyens + intervalles_confiance
 
 #q8
 barplot2(temps_moyens, names.arg=techniques, plot.ci=TRUE, ci.l=temps_moyens_low, ci.u=temps_moyens_upp)
