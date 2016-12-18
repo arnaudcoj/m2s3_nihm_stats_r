@@ -1,4 +1,4 @@
-source("ex3.r")
+source("ex3.R")
 pdf(file="test_ex4_box.pdf")
 boxplot(v)
 dev.off()

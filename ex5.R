@@ -30,8 +30,10 @@ calcul_intervalle_confiance = function(dataframe, technique) {
 
 intervalles_confiance = sapply(techniques, calcul_intervalle_confiance, dataframe=data)
 
-temps_moyens_low = temps_moyens - intervalles_confiance
-temps_moyens_upp = temps_moyens + intervalles_confiance
+temps_moyens_low = temps_moyens - (intervalles_confiance / 2)
+temps_moyens_upp = temps_moyens + (intervalles_confiance / 2)
 
 #q8
-barplot2(temps_moyens, names.arg=techniques, plot.ci=TRUE, ci.l=temps_moyens_low, ci.u=temps_moyens_upp)
+png(file="ex5.png")
+barplot2(temps_moyens, names.arg=techniques, plot.ci=TRUE, main="Temps moyen pour chaque technique", xlab="Technique", ylab="Temps Moyen" ,ci.l=temps_moyens_low, ci.u=temps_moyens_upp)
+dev.off()

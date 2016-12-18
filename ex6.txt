@@ -1,4 +1,4 @@
-Q 9. Examinez les effets significatifs. L’effet significatif de Technique permet-il de conclure directement que Surfpad est meilleure que les deux autres techniques?
+q9.
 
 Avec ezANOVA nous obtenons le tableau suivant :
 Effect DFn DFd           F            p p<.05         ges
@@ -18,3 +18,10 @@ La colonne ges donne la puissance statistique d'un effet, c'est à dire la proba
 Une puissance supérieure à 0.80 est considéré comme acceptable, dans ce cas, on considère que l'effet existe réellement.
 
 On voit donc ici que les résultats ne sont pas dus au hasard (pour Technique, p < 0.5), mais on ne peut pas encore considérer que l'effet existe vraiment (ges < 0.80). On ne peut donc pas conclure que la technique Surfpad soit plus efficace qu'une autre.
+
+q10.
+
+Lorsque l'on affiche le graphe "Temps moyen des techniques en fonction de la densité" avec semPoint on constate que plus la densité augmente, plus le temps moyen augmente.
+Au contraire, lorsque l'on affiche le même graphe sans SemPoint, on voit que le temps moyen n'augmente plus de façon significative et que l'écart entre chaque technique est quasiment le même. Dans ce cas, on considère donc que la densité n'a pas d'impact sur l'efficacité de la technique.
+
+On peut donc conclure qu'en supprimant les données de la technique SemPoint, l'interaction entre Technique et Density n'existerait plus.
