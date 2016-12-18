@@ -34,3 +34,20 @@ attach(data.long)
 print(pairwise.t.test(Time, interaction(Technique), p.adj = "bonf"))
 print(pairwise.t.test(Time, interaction(Technique, density), p.adj = "bonf"))
 detach(data.long)
+
+#q10
+calcul_temps_moyen = function(dataframe, dens, technique) {
+  participants=subset(dataframe,Err==0 & Technique==technique & density==dens)
+  return(mean(participants[,"Time"]))
+}
+
+calcul_temps_moyen_par_densite = function(dataframe, techniques, density) {
+  return(sapply(techniques, calcul_temps_moyen, dataframe=dataframe, dens=density))
+}
+
+techniques=unique(data$Technique)
+densities=unique(data$density)
+data_densities=subset(data, density==densities)
+temps_moyens = sapply(densities, calcul_temps_moyen_par_densite, dataframe=data_densities, techniques=techniques)
+
+barplot(temps_moyens, names.arg=densities, beside=TRUE)
