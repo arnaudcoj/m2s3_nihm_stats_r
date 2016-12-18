@@ -16,7 +16,7 @@ ____________
 ![Temps moyen pour chaque technique (ex5)](ex5.png)
 
 ## Exercice 6
-[Fichier ex5.R](ex6.R)
+[Fichier ex6.R](ex6.R)
 
 #### Q9.
 
